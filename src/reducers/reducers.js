@@ -29,6 +29,7 @@ const initialState = {
     ]
 }
 
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'HEROES_FETCHING':
@@ -53,6 +54,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 heroes: newHeroList
             }
+        case 'HERO_CREATED':
+            return {
+                ...state,
+                heroes: [...state.heroes, action.payload]
+            }
         default:
            return state;
     }
@@ -60,3 +66,4 @@ const reducer = (state = initialState, action) => {
 
 
 export default reducer;
+
